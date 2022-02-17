@@ -1,0 +1,182 @@
+@font-face {
+  font-family: Avenir;
+  src: url("/public/assets/fonts/Metropolis-Regular.otf");
+}
+
+@font-face {
+  font-family: Avenir-Bold;
+  src: url("/public/assets/fonts/Metropolis-ExtraBold.otf");
+}
+
+@font-face {
+  font-family: Avenir-Light;
+  src: url("/public/assets/fonts/Metropolis-ExtraLight.otf");
+}
+
+@font-face {
+  font-family: Product;
+  src: url("/public/assets/fonts/Product\ Sans\ Regular.ttf");
+}
+
+body {
+  margin: 0;
+  padding: 20px 50px;
+  font-family: Avenir;
+  background-color: black !important;
+}
+
+/*Styling Navbar*/
+
+.btn-login {
+  border: none;
+  outline: none;
+  color: #E8E8E8;
+  font-weight: 700;
+  margin-right: 25px;
+  background-color: transparent;
+}
+
+.btn-register {
+  border: none;
+  outline: none;
+  color: #E8E8E8;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #CD2E71;
+}
+
+.dropdown-toggle img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: #CD2E71 3px solid;
+}
+
+.dropdown-menu {
+  width: 300px;
+  top: 50px !important;
+  padding: 15px 0px !important;
+  border-radius: 8px !important;
+  background-color: #0D0D0D !important;
+}
+
+.dropdown-item {
+  line-height: 70px;
+}
+
+.dropdown-item span {
+  font-size: 22px;
+  font-weight: 800;
+  margin-left: 15px;
+}
+
+
+
+
+/* additional triangle */
+.triangle {
+  width: 0;
+	height: 0;
+  top: -40px;
+  right: 18px;
+  position: absolute;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 40px solid #0D0D0D;
+}
+
+/* Horizontal line */
+hr {
+  left: 0;
+  width: 100%;
+  opacity: 0.7;
+  border: 2px solid #A8A8A8;
+}
+
+/*End of styling Navbar*/
+
+/* Styling Index Page */
+.hero-film-image {
+  display: flex;
+  margin-top: 30px;
+  position: relative;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-film-image img {
+  width: 1100px;
+  border-radius: 8px;
+}
+
+.hero-film-detail {
+  top: 10%;
+  left: 10%;
+  width: 800px;
+  position: absolute;
+}
+
+.hero-film-title span{
+  display: block;
+}
+
+.hero-film-first-title {
+  font-size: 38px;
+  color: #A52620;
+  font-weight: bolder;
+  font-family: Avenir-Bold;
+}
+
+.hero-film-second-title {
+  color: #fff;
+  font-size: 38px;
+  font-weight: 900;
+  font-family: Avenir-Bold;
+}
+
+.hero-film-genre {
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.hero-film-desc {
+  font-size: 14px;
+  color: #FFFFFF;
+  font-family: Avenir-Light;
+}
+
+.btn-buy {
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #CD2E71;
+}
+
+/* End of Styling Index Page */
+
+/* Additional Style */
+.dropdown-toggle::after{
+  display: none !important; 
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
