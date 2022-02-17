@@ -1,20 +1,30 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom";
-
 import { Dropdown } from "react-bootstrap";
+
+//import components
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 
 export default function Navbar(props) {
 
   const [navItem, setNavItem] = useState(null);
+  const [showLogin, setShowLogin] = useState(false)
+  const [showRegister, setShowRegister] = useState(false)
+
   const status = props.isLogin
 
-  function item(status) {
+  function NavItem(status) {
+
     try {
       if(!status) {
         const item = (
         <>
-          <button className="btn-login">Login</button>
-          <button className="btn-register">Register</button>
+          <button onClick={() => setShowLogin(true)} className="btn-login">
+            Login
+          </button>
+          <button onClick={() => setShowRegister(true)} className="btn-register">
+            Register
+          </button>
         </>
         )
 
@@ -32,12 +42,12 @@ export default function Navbar(props) {
 
               <div className="triangle"></div>
 
-              <Dropdown.Item href="#">
+              <Dropdown.Item as="div">
                 <img src="/assets/icons/user.png" alt="user-icon"/>
                 <span>Profile</span>
               </Dropdown.Item>
               
-              <Dropdown.Item href="#/action-2">
+              <Dropdown.Item as="div">
                 <img src="/assets/icons/board.png" alt="board-icon"/>
                 <span>My List Film</span>
               </Dropdown.Item>
@@ -62,7 +72,7 @@ export default function Navbar(props) {
   }
 
   useEffect(()=> {
-    item(status)
+    NavItem(status)
   }, []);
 
   return (
@@ -72,6 +82,15 @@ export default function Navbar(props) {
       </div>
       <div className="nav-right">
         {navItem}
+        <Login 
+          show={showLogin}
+          onHide={() => setShowLogin(false)}
+        />
+
+        <Register 
+          show={showRegister}
+          onHide={() => setShowRegister(false)}
+        />
       </div>
     </div>
   )

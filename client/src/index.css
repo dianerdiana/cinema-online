@@ -18,10 +18,16 @@
   src: url("/public/assets/fonts/Product\ Sans\ Regular.ttf");
 }
 
+@font-face {
+  font-family: Product-Bold;
+  src: url("/public/assets/fonts/Product\ Sans\ Bold.ttf");
+}
+
 body {
   margin: 0;
   padding: 20px 50px;
   font-family: Avenir;
+  letter-spacing: 1px;
   background-color: black !important;
 }
 
@@ -40,6 +46,7 @@ body {
   border: none;
   outline: none;
   color: #E8E8E8;
+  font-weight: 700;
   padding: 8px 16px;
   border-radius: 5px;
   background-color: #CD2E71;
@@ -69,10 +76,6 @@ body {
   font-weight: 800;
   margin-left: 15px;
 }
-
-
-
-
 /* additional triangle */
 .triangle {
   width: 0;
@@ -138,11 +141,22 @@ hr {
 .hero-film-genre {
   font-weight: 600;
   color: #FFFFFF;
+  margin-top: 25px;
+}
+
+.hero-film-price {
+  color: #CD2E71;
+  font-weight: 600;
+  font-family: Product;
+  margin: 13px 0;
 }
 
 .hero-film-desc {
   font-size: 14px;
   color: #FFFFFF;
+  line-height: 22px;
+  opacity: 0.8;
+  font-weight: lighter;
   font-family: Avenir-Light;
 }
 
@@ -156,9 +170,136 @@ hr {
   background-color: #CD2E71;
 }
 
+/* Styling List Film Group */
+.list-film-group {
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.list-film-group h4 {
+  margin: 25px 0;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.list-film {
+  width: 96%;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+}
+
+.list-film-img-wrapper {
+  margin: 0 8px;
+  border-radius: 5px;
+}
+
+.list-film-img-wrapper img {
+  width: 180px;
+  height: 250px;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* End of Styling Index Page */
 
+/*Styling Login & Register Modal*/
+.modal-dialog{
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 420px;
+  border-radius: 8px;
+  background-color: #0D0D0D;
+}
+
+.modal-body {
+  padding: 50px 30px;
+}
+
+.form h2 {
+  font-family: Product-Bold;
+  margin-bottom: 30px;
+  color: #CD2E71;
+  font-weight: bolder;
+}
+
+.form-control {
+  padding: 10px;
+  margin-bottom: 20px;
+  background: #D2D2D240;
+  border: 2px solid #BCBCBC;
+}
+
+.btn-form {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  font-size: 18px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  font-family: Product-Bold;
+  background-color: #CD2E71;
+}
+
+.form p {
+  margin: 0 auto;
+  font-size: 18px;
+  color: #FFFFFF;
+  font-weight: lighter;
+  font-family: Product;
+}
+
+.p-login {
+  width: 86%;
+}
+
+.p-register {
+  width: 92%;
+}
+
+.btn-here {
+  border: none;
+  outline: none;
+  color: #FFFFFF;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-family: Product;
+  background-color: transparent;
+}
 /* Additional Style */
+
+/*Scrollbar styling*/
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #CD2E71; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #8b1144; 
+}
+
+
 .dropdown-toggle::after{
   display: none !important; 
 }
