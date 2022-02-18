@@ -2,6 +2,7 @@ import {dataFilm} from "../fake-data/data-film"
 
 import { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 //import components
 import Navbar from "../components/Navbar"
@@ -9,7 +10,7 @@ import Login from "../components/auth/Login"
 
 export default function Home() {
 
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   return(
     <Container fluid>
@@ -44,7 +45,9 @@ export default function Home() {
           {dataFilm.map((image) => {
             return(
               <div key={image.id} className="list-film-img-wrapper">
-                <img src={image.url}/>
+                <a href={"/detail-film/"+image.id}>
+                  <img src={image.url}/>
+                </a>
               </div>
             )
           })}

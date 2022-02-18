@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react"
 import { Dropdown } from "react-bootstrap";
 
+import { Link, useNavigate } from "react-router-dom";
+
 //import components
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
 export default function Navbar(props) {
+
+  const navigate = useNavigate()
 
   const [navItem, setNavItem] = useState(null);
   const [showLogin, setShowLogin] = useState(false)
@@ -42,19 +46,19 @@ export default function Navbar(props) {
 
               <div className="triangle"></div>
 
-              <Dropdown.Item as="div">
+              <Dropdown.Item href="/profile">
                 <img src="/assets/icons/user.png" alt="user-icon"/>
                 <span>Profile</span>
               </Dropdown.Item>
               
-              <Dropdown.Item as="div">
+              <Dropdown.Item href="/my-list-film">
                 <img src="/assets/icons/board.png" alt="board-icon"/>
                 <span>My List Film</span>
               </Dropdown.Item>
 
               <hr />
 
-              <Dropdown.Item href="#/action-2">
+              <Dropdown.Item as="button">
                 <img src="/assets/icons/logout.png" alt="logout-icon"/>
                 <span>Logout</span>
               </Dropdown.Item>
@@ -78,7 +82,9 @@ export default function Navbar(props) {
   return (
     <div className="navbar">
       <div className="nav-left">
-        <img src="/assets/icons/app-title.png"/>
+        <Link to="/">
+          <img src="/assets/icons/app-title.png"/>
+        </Link>
       </div>
       <div className="nav-right">
         {navItem}

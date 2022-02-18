@@ -273,6 +273,146 @@ hr {
   font-family: Product;
   background-color: transparent;
 }
+
+/*End of Styling Login & Register Modal*/
+
+/* Styling My List Film */
+
+.my-list-film {
+  margin-top: 50px;
+}
+
+.my-list-film h2{
+  margin: 40px 100px;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-family: Product;
+}
+
+.my-list-film-img-group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.my-list-film-img {
+  margin: 12px;
+  width: 180px;
+  height: 250px;
+  border-radius: 5px;
+}
+
+.my-list-film img {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+  object-position: center;
+}
+
+/* End of Styling My List Film */
+
+/* Styling Profile Page */
+.profile {
+  width: 84%;
+  display: flex;
+  margin: 50px auto;
+}
+
+.profile-left h3, .profile-right h3 {
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-bottom: 30px;
+  font-family: Product;
+}
+
+.profile-data {
+  display: flex;
+}
+
+.profile-data-img, .profile-data-img img {
+  width: 180px;
+  height: 222px;
+  margin-right: 28px;
+}
+
+.profile-data-img img{
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-data-user-group {
+  margin-bottom: 27px;
+}
+
+.profile-data-user-group h6{
+  color:#CD2E71;
+  font-weight: 700;
+  font-family: Product;
+}
+
+.profile-data-user-group p {
+  color: #616161;
+}
+
+/* Styling transaction */
+.profile-right {
+  width: 50%;
+  margin-left: auto;
+}
+
+.transaction-film {
+  color: #FFFFFF;
+  font-weight: 900;
+}
+
+.transaction-detail {
+  position: relative;
+  padding: 14px 16px;
+  margin-bottom: 15px;
+  background: #CD2E7170;
+}
+
+.transaction-date {
+  color: #FFFFFF;
+  font-weight: 300;
+  margin-top: 5px;
+  font-size: 12px;
+  font-family: Avenir-Light;
+  opacity: 0.7;
+}
+
+.transaction-day {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.transaction-price {
+  font-size: 14px;
+  color: #CD2E71;
+  font-weight: 900;
+  font-family: Product;
+}
+
+.transaction-status {
+  position: absolute;
+  padding: 3px 35px 2px 35px;
+  font-size: 14px;
+  border-radius: 3px;
+  right: 16px;
+  bottom: 14px;
+  color: #00FF47;
+  background: #00ff483d;
+}
+/* End of Styling Profile Page */
+
+/* Styling Detail Film */
+.detail-film {
+  color: #FFFFFF;
+}
+
+/* End of Styling Detail Film */
+
 /* Additional Style */
 
 /*Scrollbar styling*/
