@@ -10,7 +10,7 @@ import Login from "../components/auth/Login"
 
 export default function Home() {
 
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   return(
     <Container fluid>
@@ -45,9 +45,9 @@ export default function Home() {
           {dataFilm.map((image) => {
             return(
               <div key={image.id} className="list-film-img-wrapper">
-                <a href={"/detail-film/"+image.id}>
+                <Link to={"/detail-film/"+image.id}>
                   <img src={image.url}/>
-                </a>
+                </Link>
               </div>
             )
           })}

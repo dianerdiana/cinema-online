@@ -220,6 +220,12 @@ hr {
   padding: 50px 30px;
 }
 
+.add-film-form {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .form h2 {
   font-family: Product-Bold;
   margin-bottom: 30px;
@@ -234,6 +240,39 @@ hr {
   border: 2px solid #BCBCBC;
 }
 
+.form-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form h2.add-film-title {
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.input-title {
+  width: 79%;
+}
+
+.input-file-label {
+  width: 20%;
+  margin-left: auto;
+  color: #b1b1b1;
+}
+
+.input-file-label img {
+  margin-left: 25px;
+  width: 15px;
+}
+
+.input-file::-webkit-file-upload-button {
+  visibility: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
 .btn-form {
   width: 100%;
   border: none;
@@ -246,6 +285,21 @@ hr {
   margin: 20px 0;
   font-family: Product-Bold;
   background-color: #CD2E71;
+}
+
+.btn-add-film {
+  margin-left: auto;
+  border: none;
+  outline: none;
+  right: 0;
+  padding: 10px 80px;
+  font-size: 18px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  font-family: Product-Bold;
+  background-color: #CD2E71
 }
 
 .form p {
@@ -408,7 +462,78 @@ hr {
 
 /* Styling Detail Film */
 .detail-film {
+  display: flex;
   color: #FFFFFF;
+  margin-top: 50px;
+}
+
+.detail-film-img, .detail-film-img img {
+  width: 350px;
+  height: 485px;
+  border-radius: 8px;
+}
+
+.detail-film-img img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.detail-film-data {
+  margin-left: 30px;
+}
+
+.detail-film-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-film-title h2 {
+  font-weight: 900;
+  font-size: 48px;
+  font-family: Avenir-Bold;
+}
+
+.detail-film-video{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.detail-film-category {
+  color: #7E7E7E;
+}
+
+.detail-film-desc p {
+  line-height: 38px;
+}
+
+.video-react-poster, .poster, .poster img {
+  width: 870px;
+  height: 350px;
+}
+
+.poster {
+  position: relative;
+}
+
+.btn-play {
+  position: absolute;
+  top: 45%;
+  left: 48%;
+  padding: 10px 30px;
+  border-radius: 0.3em;
+  outline: none;
+  border: 0.06666em solid #fff;
+  background-color: rgba(115, 133, 159, 0.5);;
+}
+
+.play-icon {
+  display: inherit;
+  width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-left: 15px solid #fff;
+	border-bottom: 10px solid transparent;
 }
 
 /* End of Styling Detail Film */

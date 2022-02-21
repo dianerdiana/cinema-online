@@ -18,7 +18,7 @@ export default function Register(props) {
 
         <Form.Control type="password" placeholder="Password" />
 
-        <Form.Control type="password" placeholder="Full Name" />
+        <Form.Control type="text" placeholder="Full Name" />
 
         <button className="btn-form">
           Register
