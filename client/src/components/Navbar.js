@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react"
-import { Dropdown } from "react-bootstrap";
+import { useState, useContext, useEffect } from "react"
+import { UserContext } from '../context/userContext';
+import { Dropdown, } from "react-bootstrap";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -7,7 +8,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 
-export default function Navbar(props) {
+export default function Navbar() {
+
+  const [state, dispatch] = useContext(UserContext)
 
   const navigate = useNavigate()
 
@@ -15,7 +18,13 @@ export default function Navbar(props) {
   const [showLogin, setShowLogin] = useState(false)
   const [showRegister, setShowRegister] = useState(false)
 
-  const status = props.isLogin
+  const logout = () => {
+    console.log(state);
+    dispatch({
+      type: "LOGOUT",
+    });
+    navigate("/");
+  };
 
   function NavItem(status) {
 
@@ -37,28 +46,28 @@ export default function Navbar(props) {
 
         const item = (
         <>
-          <Dropdown>
-            <Dropdown.Toggle variant="link">
+          <Dropdown className="dropdown-profile">
+            <Dropdown.Toggle className="dropdown-toggle-profile" variant="link">
               <img src="/assets/images/profile-circle.png" />
             </Dropdown.Toggle>
 
-            <Dropdown.Menu variant="dark">
+            <Dropdown.Menu className="dropdown-menu-profile" variant="dark">
 
               <div className="triangle"></div>
 
-              <Dropdown.Item href="/profile">
+              <Dropdown.Item className="dropdown-item-profile" as={Link} to="/profile">
                 <img src="/assets/icons/user.png" alt="user-icon"/>
                 <span>Profile</span>
               </Dropdown.Item>
               
-              <Dropdown.Item href="/my-list-film">
+              <Dropdown.Item className="dropdown-item-profile" as={Link} to="/my-list-film">
                 <img src="/assets/icons/board.png" alt="board-icon"/>
                 <span>My List Film</span>
               </Dropdown.Item>
 
               <hr />
 
-              <Dropdown.Item as="button">
+              <Dropdown.Item onClick={logout} as="button">
                 <img src="/assets/icons/logout.png" alt="logout-icon"/>
                 <span>Logout</span>
               </Dropdown.Item>
@@ -76,8 +85,8 @@ export default function Navbar(props) {
   }
 
   useEffect(()=> {
-    NavItem(status)
-  }, []);
+    NavItem(state.isLogin)
+  }, [state.isLogin]);
 
   return (
     <div className="navbar">

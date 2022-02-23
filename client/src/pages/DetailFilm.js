@@ -1,163 +1,166 @@
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { Player, BigPlayButton, PlayToggle, ControlBar } from "video-react";
+import { Player, BigPlayButton } from "video-react";
 
 //import components
 import Navbar from "../components/Navbar";
+import FilmNotBuy from "../components/FilmNotBuy";
+import FilmApproved from "../components/FilmApproved";
 
-//import data
-import { dataFilm as film } from "../fake-data/data-film";
+import { API } from '../config/api'
+
 
 export default function DetailFilm() {
 
   const params = useParams()
   const id = params.id
   
-  const [dataFilm, setDataFilm] = useState({data: film});
-  const [isLogin, setIsLogin] = useState(true);
   const [playButton, setPlayButton] = useState();
 
-  
-  const getDataFilm = async (film) => {
-    
-    let filmChecked;
+  const [video, setVideo] = useState({})
+
+  const getFilm = async (id) => {
 
     try {
-
-      filmChecked = await (film?.find((item)=> item.id == id))
-
-      setDataFilm({
-        data: filmChecked
-      })
-
-      console.log(filmChecked)
-
-      let video;
-
-      if (filmChecked?.status === "finished") {
-        video = (
-          <GetFullFilm film={filmChecked}/>
-        )
-
-        setPlayButton(video)
-      } else if (filmChecked?.status !== "finished"){
-        video = (
-          <GetPreviewImg film={filmChecked}/>
-        )
-        setPlayButton(video)
-      }
-
       
+      const response = await API.get("/detail-transaction/" + id)
+
+      setVideo(response.data.data.bill)
+
     } catch (error) {
       console.log(error)
     }
   }
 
-  console.log(playButton)
+  console.log(video)
 
-  // const checkFilm = async (status, dataFilm) => {
-  //   try {
+  
+  function renderFilm(video) {
 
-  //     let video;
+    let renderDisplay;
 
-  //     if (status && dataFilm?.status === "finished") {
+    if (video?.status === "Pending") {
 
-  //       video = (
-  //         <GetFullFilm film={dataFilm}/>
-  //       )
+      renderDisplay = (
+        <FilmApproved />
+      )
+      setPlayButton(renderDisplay)
 
-  //       setPlayButton(video)
-        
-  //     } else if (status && dataFilm?.status !== "finished"){
-  //       video = (
-  //         <GetPreviewImg imgPreview={dataFilm}/>
-  //       )
-  //       setPlayButton(video)
-  //     }
-      
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+    } else if (video?.status === "Approve") {
 
-  const filmPreview = dataFilm?.data
+      renderDisplay = (
+        <FilmNotBuy />
+      )
+      setPlayButton(renderDisplay)
 
+    }
+  }
+  
   useEffect(()=>  {
-    getDataFilm(film);
-    // checkFilm(isLogin, dataFilm?.data);
+    let abortController = new AbortController();
+    getFilm(id);
+    renderFilm(video)
     
-    // GetFullFilm (dataFilm?.data);
-    // GetPreviewImg(dataFilm?.data);
+    return () => {  
+      abortController.abort();  
+      } 
   }, []);
   
 
  return(
    <Container fluid>
-     <Navbar isLogin={isLogin}/>
-     <div className="detail-film">
-       <div className="detail-film-img">
-         <img src={filmPreview?.url} alt="image-film"/>
-       </div>
-       <div className="detail-film-data">
-         <div className="detail-film-title">
-          <div>
-            <h2>
-              {filmPreview?.title}
-            </h2>
-          </div>
-          <div>
-            <button className="btn-buy detail-film-btn">
-              Buy Now
-            </button>
-          </div>
-         </div>
-         <div className="detail-film-video">
-           <GetFullFilm film={dataFilm}/>
-         </div>
-         <h4 className="detail-film-category">
-           {filmPreview?.category}
-         </h4>
-         <div className="detail-film-desc">
-           <p>
-             {filmPreview?.desc}
-           </p>
-         </div>
-       </div>
-     </div>
+     <Navbar />
+     {playButton && playButton}
    </Container>
  )
 }
 
 function GetPreviewImg(props) {
 
+  const data = props.film
+
   return (
     <>
-      <div className="poster">
-        <img src={props?.film?.imgPreview} alt="image-preview" />
-        <button className="btn-play">
-          <span className="play-icon"></span>
-        </button>
+      <div className="detail-film">
+          <div className="detail-film-img">
+          <img src={data?.film?.thumbnail} alt="image-film"/>
+        </div>
+        <div className="detail-film-data">
+          <div className="detail-film-title">
+            <div>
+              <h2>
+                {data?.film?.title}
+              </h2>
+            </div>
+            <div>
+              <button className="btn-buy detail-film-btn">
+                Buy Now
+              </button>
+            </div>
+          </div>
+          <div className="detail-film-video">
+            <div className="poster">
+              <img src={data?.film?.imgPreview} alt="image-preview" />
+              <button className="btn-play">
+                <span className="play-icon"></span>
+              </button>
+            </div>   
+          </div>
+          <h4 className="detail-film-category">
+            {data?.film?.category}
+          </h4>
+          <div className="detail-film-desc">
+            <p>
+              {data?.film?.descriptions}
+            </p>
+          </div>
+        </div>
       </div>
     </>
   )
 }
 
 function GetFullFilm(props) {
+
+  const data = props?.film
   
-  const detailFilm = props?.film?.data
 
   return (
     <>
-      <Player
-        fluid={false}
-        width={870}
-        height={350}
-        poster={detailFilm?.imgPreview}
-        src={detailFilm?.videoUrl}
-        >
-          <BigPlayButton position="center"/>
-        </Player>
+      <div className="detail-film">
+          <div className="detail-film-img">
+          <img src={data?.film?.thumbnail} alt="image-film"/>
+        </div>
+        <div className="detail-film-data">
+          <div className="detail-film-title">
+            <div>
+              <h2>
+                {data?.film?.title}
+              </h2>
+            </div>
+          </div>
+          <div className="detail-film-video">
+            <Player
+              fluid={false}
+              width={870}
+              height={350}
+              poster={data?.film?.imgPreview}
+              src={data?.film?.filmUrl}
+              >
+                <BigPlayButton position="center"/>
+            </Player>   
+          </div>
+          <h4 className="detail-film-category">
+            {data?.film?.category}
+          </h4>
+          <div className="detail-film-desc">
+            <p>
+              {data?.film?.descriptions}
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

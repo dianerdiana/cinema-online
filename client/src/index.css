@@ -52,14 +52,14 @@ body {
   background-color: #CD2E71;
 }
 
-.dropdown-toggle img {
+.dropdown-toggle-profile img {
   width: 55px;
   height: 55px;
   border-radius: 50%;
   border: #CD2E71 3px solid;
 }
 
-.dropdown-menu {
+.dropdown-menu-profile {
   width: 300px;
   top: 50px !important;
   padding: 15px 0px !important;
@@ -67,7 +67,7 @@ body {
   background-color: #0D0D0D !important;
 }
 
-.dropdown-item {
+.dropdown-item-profile {
   line-height: 70px;
 }
 
@@ -496,11 +496,19 @@ input[type="file"] {
 .detail-film-video{
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 35px 0;
 }
 
 .detail-film-category {
   color: #7E7E7E;
+}
+
+.detail-film-price {
+  font-size: 18px;
+  color: #CD2E71;
+  font-family: Product;
+  font-weight: 900;
+  margin: 20px 0;
 }
 
 .detail-film-desc p {
@@ -527,6 +535,10 @@ input[type="file"] {
   background-color: rgba(115, 133, 159, 0.5);;
 }
 
+.btn-play:hover {
+  background-color:  rgba(69, 82, 100, 0.5);
+}
+
 .play-icon {
   display: inherit;
   width: 0;
@@ -537,6 +549,50 @@ input[type="file"] {
 }
 
 /* End of Styling Detail Film */
+
+/* Syling Data Transactions */
+.table-transactions h3{
+  color: #fff;
+  font-weight: 900;
+}
+
+/* Styling table transations */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  color: #E50914;
+  background: #1F1F1F;
+}
+
+td {
+  color: #fff;
+  background-color: #2B2B2B;
+}
+
+th, td {
+  text-align: left;
+  padding: 20px 8px;
+  border-bottom: 2px solid #C4C4C4;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+/* Styling Dropdown Actions */
+
+.dropdown-action {
+  position: relative !important;
+}
+
+.dropdown-action-menu {
+  width: 200px;
+  right: -16px !important;
+  top: 35px !important;
+  background: #0D0D0D;
+}
+
 
 /* Additional Style */
 

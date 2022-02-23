@@ -1,7 +1,10 @@
 //import conponents
 import { useState } from "react"
 import { Container } from "react-bootstrap"
-import Navbar from "../components/Navbar"
+
+//import component
+import Navbar from "../components/Navbar";
+import DataTransactions from "../components/DataTransactions"
 
 export default function ListTransaction() {
 
@@ -10,6 +13,7 @@ export default function ListTransaction() {
   return (
     <Container fluid>
       <Navbar isLogin={isLogin}/>
+      <DataTransactions />
     </Container>
   )
 }
